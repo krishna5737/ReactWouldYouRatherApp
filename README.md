@@ -1,12 +1,8 @@
-# Udacity My Reads App
+# Udacity Would You Rather? App
 
-User can place selected books from the list of available books into one of the shelf (_" Currently Reading" , "Want to Read" , "Read"_) after searching from the Udacity book database. User can also switch the shelf of already added book
+In the "Would You Rather?" is an app that lets a user play the “Would You Rather?” game. The game goes like this: A user is asked a question in the form: “Would you rather [option A] or [option B] ?”. Answering "neither" or "both" is against the rules.
 
-Application contains two pages:
-<ul>
-    <li>Homepage: Displays the three bookshelfs, currently reading, want to read, and read. 
-    <li>Search Page: Allows the user to search for books from the database.
-</ul>
+In your app, users can answer questions, see which questions they haven’t answered, see how other people have voted, post questions, and see the ranking of users on the leaderboard.
 
 ## Prerequisites
 
@@ -21,15 +17,22 @@ Access the projects folder and run `npm install` from the command line to instal
 
 ## How to use
 
-### Choosing which shelf to send a book to
-Once loaded you may choose which shelf to send a book to by clicking on the green circle with a down arrow of any book.
+### Logging to the game
+User can select his name from the dropdown lis to start playing the game
 
-### Search for a book to add to shelf
-To access the search page select the plus icon located at the bottom right of the page. Type in the search field for possible books to be found. No results will be displayed if the input field is blank or the query you've typed does not exist.
+### Unanswered Questions
+After logging user can switch between unanswered and answered questions poll view.For Each Question asked and answered user gets a point and can climb the leaderboard which can also be viewed from the same screen navbar.
+Options user cna choose from:
+    <ul>
+    <li> Add a New Question
+    <li> Viewing Unanswered/Answered Questions
+    <li> Viewing the Leaderboard
+    <li> Logging out
+    </ul>
 
 ## Screenshots
 ### Home Page   
-![Home Page](/src/Screenshots/HomePage.png)
+![Home Page](/src/images/Screenshots/HomePage.png)
 
-### Search Page
-![Search Page](/src/Screenshots/SearchPage.png)
+### User Dashboard
+![Search Page](/src/images/Screenshots/UserDashboard.png)
