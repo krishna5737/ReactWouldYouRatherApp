@@ -346,6 +346,7 @@ li {
 }
 
 .page-not-found-image-container {
+    align-content: center;
     margin-top: 100px;
 }
 

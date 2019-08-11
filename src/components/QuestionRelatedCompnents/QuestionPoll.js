@@ -43,7 +43,7 @@ class QuestionPoll extends Component {
             return <PageNotFound/>;
         }
 
-        const redirectTo = `/question/${id}/results`;
+        const redirectTo = `/question/${id}`;
 
         if (answerSubmitted === true) {
             return <Redirect to={redirectTo}/>;

@@ -3,7 +3,6 @@ import { BrowserRouter ,Route,Switch,withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
 import Dashboard from './Dashboard';
 import NewQuestion from './QuestionRelatedCompnents/NewQuestion';
-import QuestionPoll from './QuestionRelatedCompnents/QuestionPoll';
 import QuestionPollResults from './QuestionRelatedCompnents/QuestionPollResults';
 import Scoreboard from './ScoreBoard';
 import Navbar from './Navbar';
@@ -37,14 +36,9 @@ class App extends Component {
 										component={Dashboard}
 										isAuthenticated={this.props.authenticated}
 									/>
+									
 									<ProtectedRoute
 										path="/question/:id"
-										exact
-										component={connect(mapStateToProps)(QuestionPoll)}
-										isAuthenticated={this.props.authenticated}
-									/>
-									<ProtectedRoute
-										path="/question/:id/results"
 										exact
 										component={connect(mapStateToProps)(QuestionPollResults)}
 										isAuthenticated={this.props.authenticated}
