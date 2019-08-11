@@ -1,9 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import PageNotFound from './../PageNotFound';
 
 var QuestionPollResults = function (props) {
     const {question, author} = props;
-    debugger;
+
+    if (PageNotFound === true) {
+        return <PageNotFound/>;
+    }
+
     const totalVotes = question.optionOne.votes.length + question.optionTwo.votes.length;
 
     const optionSelected = question.optionOne.votes.includes(author.id) ? "optionOne" : "optionTwo";
@@ -39,7 +44,7 @@ var QuestionPollResults = function (props) {
                                                                      ></div>
                                                             </div>
                                                             <div>
-                                                                <span>{question.optionOne.votes.length} out of {totalVotes} votes. ({optionTwoWidth}%)</span>
+                                                                <span>{question.optionOne.votes.length} out of {totalVotes} votes. ({optionOneWidth}%)</span>
                                                             </div>
 
                                                         </div>
@@ -72,10 +77,12 @@ var QuestionPollResults = function (props) {
 function mapStateToProps({authedUser, questions, users}, props) {
     const {id} = props.match.params;
 
+    let PageNotFound = true;
     let author = "";
     let specificQuestion = "";
 
     if (questions[id] !== undefined) {
+        PageNotFound = false;
         specificQuestion = questions[id];
         author = users[specificQuestion['author']];
     }
@@ -83,7 +90,8 @@ function mapStateToProps({authedUser, questions, users}, props) {
     return {
         id,
         question: specificQuestion,
-        author: author,
+        author: author,        
+        PageNotFound: PageNotFound
     }
 }
 

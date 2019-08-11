@@ -11,6 +11,7 @@ import Login from './Login';
 import Logout from './Logout';
 import ProtectedRoute from './ProtectedRoute';
 import LoadingBar from 'react-redux-loading';
+import PageNotFound from './PageNotFound'
 import { handleGetQuestions } from '../actions/questions';
 
 class App extends Component {
@@ -62,6 +63,7 @@ class App extends Component {
 									/>
 									<Route path="/login" exact component={withRouter(Login)} />
 									<Route path="/logout" exact component={withRouter(Logout)} />
+									<Route component={PageNotFound} />
 								</Switch>
 							</div>
 						)}

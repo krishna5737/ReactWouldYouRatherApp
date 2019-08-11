@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {handleAddQuestionAnswer} from '../../actions/shared';
 import {Redirect} from "react-router-dom";
+import PageNotFound from './../PageNotFound'
 
 class QuestionPoll extends Component {
 
@@ -36,9 +37,11 @@ class QuestionPoll extends Component {
 
     render() {
         const {optionSelected, answerSubmitted} = this.state;
-        const {id, question, author} = this.props;
+        const {id, question, author, pageNotFound} = this.props;
 
-    
+        if (pageNotFound === true) {
+            return <PageNotFound/>;
+        }
 
         const redirectTo = `/question/${id}/results`;
 
@@ -119,11 +122,12 @@ class QuestionPoll extends Component {
 function mapStateToProps({login, questions, users, match}, props) {
     const {id} = props.match.params;
 
-    
+    let pageNotFound = true;
     let author = "";
     let specificQuestion = "";
 
     if (questions[id] !== undefined) {
+        pageNotFound = false;
         specificQuestion = questions[id];
         author = users[specificQuestion['author']];
     }
@@ -133,6 +137,7 @@ function mapStateToProps({login, questions, users, match}, props) {
         question: specificQuestion,
         author: author,
         authedUser: login.loggedInUser.id,
+        pageNotFound: pageNotFound
     }
 }
 
